@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLEKARO - Your Fashion Destination</title>
+    <script src="https://kit.fontawesome.com/9dbda3c309.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border-bottom: 2px solid white; */
+        }
+        .logo {
+            /* font-size: 1.5rem;
+            font-weight: bold; */
+            height: 70px;
+        }
+        #Cart{
+            position: relative;
+            left: -10px;
+        }
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 2rem;
+            position: relative;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+        .search-bar button {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #2c3e50;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+        .user-actions a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+        nav {
+            background-color: #000000;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: -1px;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            font-weight: 300;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+            border-radius: 5px;
+            margin: 0 0.5rem;
+        }
+        nav a:hover {
+            background-color: #ffffff;
+            color: black;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .sidebar ul {
+            list-style-type: none;
+        }
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+        .sidebar a {
+            color: #34495e;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .sidebar a:hover {
+            color: #2980b9;
+        }
+        .products {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            padding-left: 2rem;
+        }
+        .product {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+        }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1rem;
+        }
+        .product h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .product p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+        .price {
+            font-weight: bold;
+            color: #2980b9;
+        }
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            background-color: #2980b9;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background-color: #3498db;
+        }
+
+        footer{
+            height: 20vh;
+            width: screen;
+            background-color: black;
+        }
+        footer p{
+            display: inline;
+            color: white;
+            font-size: 20px;
+            position: relative;
+            top: 30px;
+            left: 650px;
+        }
+        footer ul{
+            display: flex;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            list-style-type: none;
+            gap: 30px;
+            position: relative;
+            top: 55px;
+            left: -18px;
+        }
+        footer a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- <div class="logo">StyleHub</div> -->
+        <a href="#"><img class="logo" src="./logo.jpg" alt=""></a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button>🔍</button>
+        </div>
+        <div class="user-actions">
+            <a href="./checkout.html" id="Cart" title="Cart">🛒</a>
+            <!-- <a href="#" title="Profile">👤</a> -->
+            <a href="#" title="Profile"><i class="fa-solid fa-user fa-xl" style="color: #ffffff; font-size: 21px; position: relative; top: -1px;"></i></a>
+        </div>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">Kids</a>
+        <a href="#">Sale</a>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">All</a></li>
+                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Footwear</a></li>
+                <li><a href="#">Beauty</a></li>
+            </ul>
+        </aside>
+        <main class="products">
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHa7inlLLav2SLD-YUjmanqf-xz0v4TlY9_A&s" alt="T-Shirt">
+                <div class="product-info">
+                    <h3>Classic T-Shirt</h3>
+                    <p>Comfortable cotton t-shirt</p>
+                    <span class="price">₹999</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuX-IzO_p29NuiAvV3v5ol6_yGDrobpm9bw&s" alt="Jeans">
+                <div class="product-info">
+                    <h3>Slim Fit Jeans</h3>
+                    <p>Stylish denim jeans</p>
+                    <span class="price">₹2,499</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://s.alicdn.com/@sc04/kf/H8b4016e7eadd46debc03384af7f7ca48m.jpg_720x720q50.jpg" alt="Sneakers">
+                <div class="product-info">
+                    <h3>Casual Sneakers</h3>
+                    <p>Comfortable everyday shoes</p>
+                    <span class="price">₹1,999</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyVnuJ10rqneHTkUYYnP9Gkp0OU-wR6V2mxQ&s" alt="Watch">
+                <div class="product-info">
+                    <h3>Elegant Watch</h3>
+                    <p>Stylish wristwatch</p>
+                    <span class="price">₹4,999</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://media.gettyimages.com/id/1251767113/photo/happy-and-carefree-young-woman-outdoors.jpg?s=612x612&w=gi&k=20&c=UC0K-N-RV37BlamNVWlxVb7X4DP_vlviihIex60-fOM= " alt="Dress">
+                <div class="product-info">
+                    <h3>Summer Dress</h3>
+                    <p>Light and breezy dress</p>
+                    <span class="price">₹1,499</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLnzbuTbiCtHyP_EVUiRcT8IWh7QbOAAsdaA&s" alt="Sunglasses">
+                <div class="product-info">
+                    <h3>Sunglasses</h3>
+                    <p>UV protection sunglasses</p>
+                    <span class="price">₹1,249</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiXUEGjbhbHNzcI3sh7DxQdjk4m-qgcobwWg&s" alt="Chain">
+                <div class="product-info">
+                    <h3>Silver Chain</h3>
+                    <p>boost your looks!</p>
+                    <span class="price">₹3,200</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTANT7M33_PqiJUSDM1oqsM0Ry9yoMeN94e8g&s" alt="Perfume">
+                <div class="product-info">
+                    <h3>Perfume</h3>
+                    <p>Lavish Smell</p>
+                    <span class="price">₹549</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFZVpik2lDY4N0B7CYcfjMoTj_CsX5H7urzg&s" alt="Purse">
+                <div class="product-info">
+                    <h3>Women's Purse</h3>
+                    <p>Premium Quality Purse</p>
+                    <span class="price">₹999</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img height="200" width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwM9910w8j2G9NU6k7TicwzC3px3GB1FedCg&s" alt="Wallet">
+                <div class="product-info">
+                    <h3>Men's Wallet</h3>
+                    <p>Leather Wallet</p>
+                    <span class="price">₹499</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 STYLEKARO</p>
+        <ul>
+            <a href=""><li>Terms of use</li></a>
+            <a href=""><li>Privacy policy</li></a>
+        </ul>
+    </footer>
+</body>
+</html>
